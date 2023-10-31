@@ -25,7 +25,7 @@ function BookingBar({ bike }: Props) {
 
   return (
     <DivBookingBarContainer>
-      <DivPrice>${currentPriceByDiscount(bike?.regularPrice, parseDiscountPercentages(bike?.discountPercentage)).toFixed(2)}/Day</DivPrice>
+      <DivPrice>${currentPriceByDiscount(bike?.regularPrice, parseDiscountPercentages(bike?.discountPercentage)?.five || 0).toFixed(2)}/Day</DivPrice>
       <DivButtonWrapper>
         <ButtonContinue
           // onClick={onContinue}

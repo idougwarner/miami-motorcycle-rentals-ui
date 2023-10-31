@@ -89,10 +89,10 @@ export const formattedDate = (date: string) => {
 };
 
 export const getDiscountPrice = (duration: number, initialPrice: number, discountPercentage: BikeDiscountPercentage) => {
-  if (duration === 2) return (initialPrice * (1 - (discountPercentage.two / 100))).toFixed(2);
-  if (duration === 3) return (initialPrice * (1 - (discountPercentage.three / 100))).toFixed(2);
-  if (duration === 4) return (initialPrice * (1 - (discountPercentage.four / 100))).toFixed(2);
-  if (duration > 4) return (initialPrice * (1 - (discountPercentage.five / 100))).toFixed(2);
+  if (duration === 2) return (initialPrice * (1 - ((discountPercentage?.two || 0) / 100))).toFixed(2);
+  if (duration === 3) return (initialPrice * (1 - ((discountPercentage?.three || 0) / 100))).toFixed(2);
+  if (duration === 4) return (initialPrice * (1 - ((discountPercentage?.four || 0) / 100))).toFixed(2);
+  if (duration > 4) return (initialPrice * (1 - ((discountPercentage?.five || 0) / 100))).toFixed(2);
   return initialPrice;
 };
 
@@ -103,13 +103,13 @@ export const replaceDepositInDescription = (
   return description.replace("${deposit}", `$${deposit}`);
 };
 
-export const parseDiscountPercentages = (discountPercentage: string = '') => {
+export const parseDiscountPercentages = (discountPercentage: string = ''): BikeDiscountPercentage => {
   // Log the raw JSON string
   const cleanedString = discountPercentage.replace(/'/g, '"');
   try {
     // Try parsing the cleaned string
     const jsonObject = JSON.parse(cleanedString);
-    return jsonObject as number;
+    return jsonObject;
   } catch (error) {
     return null;
   }

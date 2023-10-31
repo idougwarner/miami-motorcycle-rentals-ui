@@ -17,20 +17,20 @@ function DiscountDetailsModal({ open, onClose, bikePrice, bikeDiscountPercentage
       value: bikePrice,
     },
     {
-      label: `2 Days (${bikeDiscountPercentage?.two}% discount)`,
-      value: (bikePrice! * (1 - (bikeDiscountPercentage?.two / 100))).toFixed(2),
+      label: `2 Days (${bikeDiscountPercentage?.two || 0}% discount)`,
+      value: (bikePrice! * (1 - ((bikeDiscountPercentage?.two || 0) / 100))).toFixed(2),
     },
     {
       label: `3 Days (${bikeDiscountPercentage?.three}% discount)`,
-      value: (bikePrice! * (1 - (bikeDiscountPercentage?.three / 100))).toFixed(2),
+      value: (bikePrice! * (1 - ((bikeDiscountPercentage?.three || 0) / 100))).toFixed(2),
     },
     {
       label: `4 Days (${bikeDiscountPercentage?.four}% discount)`,
-      value: (bikePrice! * (1 - (bikeDiscountPercentage?.four / 100))).toFixed(2),
+      value: (bikePrice! * (1 - ((bikeDiscountPercentage?.four || 0) / 100))).toFixed(2),
     },
     {
       label: `+5 Days (${bikeDiscountPercentage?.five}% discount)`,
-      value: (bikePrice! * (1 - (bikeDiscountPercentage?.five / 100))).toFixed(2),
+      value: (bikePrice! * (1 - ((bikeDiscountPercentage?.five || 0) / 100))).toFixed(2),
     },
   ];
 
