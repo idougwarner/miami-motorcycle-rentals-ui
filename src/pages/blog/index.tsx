@@ -5,7 +5,7 @@ import { MarketingContextType } from "@/providers/types";
 import { Bike, BikeType, Brand } from "@/types";
 import { NextSeo, NextSeoProps } from "next-seo";
 import { useEffect } from 'react';
-import BlogBackgroundImage from '/public/images/blog_landing_bg.webp'
+import BlogBackgroundImage from '/public/images/blog_landing_bg.webp';
 
 export { getStaticProps } from "@/lib/ssr/common";
 

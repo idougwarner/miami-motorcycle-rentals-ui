@@ -22,7 +22,7 @@ function BikeDetail({ bike }: Props) {
   const { allBikes } = useMarketing() as MarketingContextType;
 
   // Temporary approach: display Naked-bikes for Sport-bikes or Standard-bike
-  const featuredBikes = bike.relatedBikes.length ? bike.relatedBikes.map(el => el.relatedBike) :
+  const featuredBikes = bike?.relatedBikes?.length ? bike.relatedBikes.map(el => el.relatedBike) :
     bike?.typeId === 1 || bike?.typeId === 2
       ? allBikes?.filter((item) => item.typeId === 6 && item.id !== bike.id)
       : allBikes?.filter(

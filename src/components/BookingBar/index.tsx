@@ -6,9 +6,9 @@ import {
   DivPrice,
 } from "./styles";
 import { Bike } from "@/types";
-import Router from "next/router";
-import { useBooking } from "@/providers/BookingProvider";
-import { BookingContextType } from "@/providers/types";
+// import Router from "next/router";
+// import { useBooking } from "@/providers/BookingProvider";
+// import { BookingContextType } from "@/providers/types";
 import { currentPriceByDiscount, parseDiscountPercentages } from "@/utils/helpers";
 
 type Props = {
@@ -16,18 +16,21 @@ type Props = {
 };
 
 function BookingBar({ bike }: Props) {
-  const { initializeBooking } = useBooking() as BookingContextType;
-  const bookingLink = `/booking?bikeId=${bike?.id}`;
-  const onContinue = () => {
-    Router.push(bookingLink);
-    initializeBooking();
-  };
+  // const { initializeBooking } = useBooking() as BookingContextType;
+  // const bookingLink = `/booking?bikeId=${bike?.id}`;
+  // const onContinue = () => {
+  //   Router.push(bookingLink);
+  //   initializeBooking();
+  // };
 
   return (
     <DivBookingBarContainer>
-      <DivPrice>${currentPriceByDiscount(bike?.regularPrice, parseDiscountPercentages(bike?.discountPercentage)?.five).toFixed(2)}/Day</DivPrice>
+      <DivPrice>${currentPriceByDiscount(bike?.regularPrice, parseDiscountPercentages(bike?.discountPercentage)).toFixed(2)}/Day</DivPrice>
       <DivButtonWrapper>
-        <ButtonContinue onClick={onContinue}>Continue</ButtonContinue>
+        <ButtonContinue
+          // onClick={onContinue}
+          disabled={true}
+        >Continue</ButtonContinue>
       </DivButtonWrapper>
     </DivBookingBarContainer>
   );

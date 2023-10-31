@@ -28,7 +28,7 @@ function BikeDetailHeader({ bike }: Props) {
         </DivPricingWrapper>
         <DivPricingWrapper>
           <PName>{bike?.model}</PName>
-          <PCurrentPrice>${currentPriceByDiscount(bike?.regularPrice, parseDiscountPercentages(bike?.discountPercentage).five).toFixed(2)}/ Day</PCurrentPrice>
+          <PCurrentPrice>${currentPriceByDiscount(bike?.regularPrice, parseDiscountPercentages(bike?.discountPercentage) || 0).toFixed(2)}/ Day</PCurrentPrice>
         </DivPricingWrapper>
       </DivBikeDetailHeaderContainer>
     </>

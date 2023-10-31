@@ -103,13 +103,13 @@ export const replaceDepositInDescription = (
   return description.replace("${deposit}", `$${deposit}`);
 };
 
-export const parseDiscountPercentages = (discountPercentage: string = ''): BikeDiscountPercentage => {
+export const parseDiscountPercentages = (discountPercentage: string = '') => {
   // Log the raw JSON string
   const cleanedString = discountPercentage.replace(/'/g, '"');
   try {
     // Try parsing the cleaned string
     const jsonObject = JSON.parse(cleanedString);
-    return jsonObject;
+    return jsonObject as number;
   } catch (error) {
     return null;
   }
